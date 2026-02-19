@@ -1,22 +1,17 @@
-# UzCard Backend
+# UzCard – Transaction-Based Payment Backend (Spring Boot)
 
 ## Description
-UzCard Backend is a RESTful API designed to simulate a card-based payment system.
-The project focuses on handling financial transactions, user accounts, and balance management,
-demonstrating backend logic commonly used in real-world banking and payment systems.
+UzCard is a Spring Boot backend project that simulates a card-based payment system.
+The main focus of this project is **transaction processing**, including balance validation,
+atomic operations, and rollback handling to ensure data consistency.
 
----
-
-## Transaction Handling
-- Transactional operations are managed using `@Transactional` to ensure atomicity
-- Balance checks are performed before each transaction to prevent overdrafts
-- Rollback mechanisms are in place to maintain data consistency in case of failures
-- Business logic is isolated in the service layer to ensure reliable transaction processing
+This project demonstrates real-world backend skills used in payment and fintech systems:
+secure APIs, transactional business logic, and reliable persistence with PostgreSQL.
 
 ---
 
 ## Tech Stack
-- Java 17
+- Java
 - Spring Boot
 - Spring Security
 - PostgreSQL
@@ -28,25 +23,34 @@ demonstrating backend logic commonly used in real-world banking and payment syst
 
 ## Core Concepts
 - Card accounts and balances
-- Financial transactions (credit / debit)
+- Transfers (credit / debit)
 - Transaction history
-- Atomic operations and data consistency
+- Data consistency and atomic operations
 
 ---
 
-## Features
+## Key Features
 - User authentication and authorization
 - Create and manage card accounts
-- Perform balance transfers between cards
-- Transaction validation and error handling
+- Balance transfer between cards
+- **Balance checks** before each transfer (prevents overdrafts)
+- **Transactional operations with `@Transactional`**
+- **Rollback on failure** to maintain data integrity
+- Global exception handling and input validation
 - Transaction history with pagination
-- Secure handling of sensitive data
+
+---
+
+## Transaction Handling
+- Business logic is isolated in the service layer
+- Operations are executed inside a transaction (`@Transactional`)
+- If any step fails (validation / persistence), the system rolls back changes automatically
 
 ---
 
 ## Architecture
 Controller → Service → Repository  
-Business logic is isolated in the service layer to ensure transaction consistency.
+DTO pattern is used for clean and secure data transfer.
 
 ---
 
