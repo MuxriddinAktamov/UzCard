@@ -7,6 +7,14 @@ demonstrating backend logic commonly used in real-world banking and payment syst
 
 ---
 
+## Transaction Handling
+- Transactional operations are managed using `@Transactional` to ensure atomicity
+- Balance checks are performed before each transaction to prevent overdrafts
+- Rollback mechanisms are in place to maintain data consistency in case of failures
+- Business logic is isolated in the service layer to ensure reliable transaction processing
+
+---
+
 ## Tech Stack
 - Java 17
 - Spring Boot
